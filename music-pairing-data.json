@@ -1,0 +1,330 @@
+{
+  "musicTiers": {
+    "0": {
+      "name": "Ambient / Relaxation",
+      "description": "Low energy, calming, contemplative",
+      "emoji": "🎹",
+      "arousalRange": "0-20",
+      "genres": [
+        "Classical",
+        "Ambient",
+        "New Age",
+        "Acoustic",
+        "Chillout",
+        "Piano"
+      ],
+      "playlists": {
+        "spotify": [
+          "Peaceful Piano",
+          "Deep Focus",
+          "Classical Essentials",
+          "Ambient Relaxation",
+          "Sleep"
+        ],
+        "mood": "Introspective, peaceful, meditative"
+      },
+      "artists": [
+        "Ludovico Einaudi",
+        "Max Richter",
+        "Brian Eno",
+        "Ólafur Arnalds",
+        "Nils Frahm"
+      ],
+      "movieMatches": [
+        "Drama",
+        "Romance",
+        "Documentary"
+      ]
+    },
+    
+    "1": {
+      "name": "Chill / Lounge",
+      "description": "Moderate energy, smooth, exploratory",
+      "emoji": "🎷",
+      "arousalRange": "20-40",
+      "genres": [
+        "Jazz",
+        "Lo-fi Hip Hop",
+        "Chillhop",
+        "Bossa Nova",
+        "R&B",
+        "Soul",
+        "Indie Folk"
+      ],
+      "playlists": {
+        "spotify": [
+          "Lo-fi Beats",
+          "Jazz Vibes",
+          "Chill Hits",
+          "Coffee Table Jazz",
+          "Chillhop Music"
+        ],
+        "mood": "Relaxed but engaging, smooth vibes"
+      },
+      "artists": [
+        "Nujabes",
+        "Tom Misch",
+        "Khruangbin",
+        "Miles Davis",
+        "Mac DeMarco"
+      ],
+      "movieMatches": [
+        "Indie films",
+        "Comedy-drama",
+        "Light sci-fi"
+      ]
+    },
+    
+    "2": {
+      "name": "Upbeat / Groovy",
+      "description": "Moderate-high energy, danceable, fun",
+      "emoji": "🎸",
+      "arousalRange": "40-60",
+      "genres": [
+        "Indie Rock",
+        "Pop",
+        "Funk",
+        "Dance",
+        "Disco",
+        "Electro-pop",
+        "Alternative"
+      ],
+      "playlists": {
+        "spotify": [
+          "Pop Rising",
+          "Indie Pop",
+          "Funk & Soul",
+          "Feel Good Indie Rock",
+          "Dance Party"
+        ],
+        "mood": "Fun, energetic, social"
+      },
+      "artists": [
+        "Daft Punk",
+        "Tame Impala",
+        "The Strokes",
+        "MGMT",
+        "Phoenix"
+      ],
+      "movieMatches": [
+        "Comedy",
+        "Heist films",
+        "Adventure"
+      ]
+    },
+    
+    "3": {
+      "name": "High Energy",
+      "description": "High intensity, driving beats, powerful",
+      "emoji": "🎤",
+      "arousalRange": "60-80",
+      "genres": [
+        "Hip Hop",
+        "Alternative Rock",
+        "Punk",
+        "Drum & Bass",
+        "House",
+        "Rap",
+        "Garage Rock"
+      ],
+      "playlists": {
+        "spotify": [
+          "RapCaviar",
+          "Rock Hard",
+          "Punk Essentials",
+          "Beast Mode",
+          "Drum & Bass"
+        ],
+        "mood": "Aggressive, confident, intense"
+      },
+      "artists": [
+        "Kendrick Lamar",
+        "Arctic Monkeys",
+        "Queens of the Stone Age",
+        "Run The Jewels",
+        "The Black Keys"
+      ],
+      "movieMatches": [
+        "Thriller",
+        "Crime",
+        "Sports films"
+      ]
+    },
+    
+    "4": {
+      "name": "Extreme / Adrenaline",
+      "description": "Maximum intensity, aggressive, visceral",
+      "emoji": "⚡",
+      "arousalRange": "80-100",
+      "genres": [
+        "EDM",
+        "Metal",
+        "Hard Rock",
+        "Industrial",
+        "Dubstep",
+        "Hardstyle",
+        "Death Metal",
+        "Hardcore"
+      ],
+      "playlists": {
+        "spotify": [
+          "Beast Mode",
+          "Metal Essentials",
+          "Dubstep Don",
+          "Hardstyle Bangers",
+          "Workout Beats"
+        ],
+        "mood": "Explosive, relentless, powerful"
+      },
+      "artists": [
+        "Skrillex",
+        "Metallica",
+        "Tool",
+        "Rammstein",
+        "System of a Down",
+        "Rage Against the Machine"
+      ],
+      "movieMatches": [
+        "Action",
+        "Horror",
+        "War films"
+      ]
+    }
+  },
+  
+  "audioFeatures": {
+    "tierMapping": {
+      "0": {
+        "energy": "0.0-0.3",
+        "tempo": "60-90 BPM",
+        "danceability": "0.0-0.4",
+        "valence": "0.3-0.7"
+      },
+      "1": {
+        "energy": "0.3-0.5",
+        "tempo": "80-110 BPM",
+        "danceability": "0.4-0.6",
+        "valence": "0.5-0.8"
+      },
+      "2": {
+        "energy": "0.5-0.7",
+        "tempo": "110-130 BPM",
+        "danceability": "0.6-0.8",
+        "valence": "0.6-0.9"
+      },
+      "3": {
+        "energy": "0.7-0.85",
+        "tempo": "130-160 BPM",
+        "danceability": "0.5-0.8",
+        "valence": "0.4-0.8"
+      },
+      "4": {
+        "energy": "0.85-1.0",
+        "tempo": "140-180+ BPM",
+        "danceability": "0.3-0.7",
+        "valence": "0.2-0.7"
+      }
+    }
+  },
+  
+  "spotifyIntegration": {
+    "authScopes": [
+      "user-top-read",
+      "playlist-read-private",
+      "user-read-recently-played"
+    ],
+    "endpoints": {
+      "audioFeatures": "https://api.spotify.com/v1/audio-features/{id}",
+      "recommendations": "https://api.spotify.com/v1/recommendations",
+      "search": "https://api.spotify.com/v1/search"
+    },
+    "recommendationSeeds": {
+      "0": {
+        "genres": ["classical", "ambient", "piano"],
+        "targetEnergy": 0.2,
+        "targetTempo": 80,
+        "targetValence": 0.5
+      },
+      "1": {
+        "genres": ["jazz", "chill", "r-n-b"],
+        "targetEnergy": 0.4,
+        "targetTempo": 100,
+        "targetValence": 0.7
+      },
+      "2": {
+        "genres": ["indie", "pop", "funk"],
+        "targetEnergy": 0.6,
+        "targetTempo": 120,
+        "targetValence": 0.8
+      },
+      "3": {
+        "genres": ["hip-hop", "rock", "punk"],
+        "targetEnergy": 0.8,
+        "targetTempo": 140,
+        "targetValence": 0.6
+      },
+      "4": {
+        "genres": ["edm", "metal", "hardstyle"],
+        "targetEnergy": 0.95,
+        "targetTempo": 160,
+        "targetValence": 0.5
+      }
+    }
+  },
+  
+  "worldMusicPairings": {
+    "korean": {
+      "high": ["K-Pop (high energy)", "Korean hip-hop", "Rock"],
+      "medium": ["K-Pop (upbeat)", "K-Indie"],
+      "low": ["K-Ballads", "Traditional Korean"]
+    },
+    "latin": {
+      "high": ["Reggaeton", "Latin trap", "Salsa"],
+      "medium": ["Bachata", "Cumbia", "Latin pop"],
+      "low": ["Bolero", "Bossa nova", "Tango"]
+    },
+    "african": {
+      "high": ["Afrobeat", "Amapiano", "Gqom"],
+      "medium": ["Highlife", "Soukous"],
+      "low": ["Afro-jazz", "Traditional"]
+    },
+    "indian": {
+      "high": ["Bollywood dance", "Bhangra"],
+      "medium": ["Bollywood ballads", "Indie pop"],
+      "low": ["Classical Indian", "Ghazals"]
+    }
+  },
+  
+  "matchingAlgorithm": {
+    "description": "How to match Spotify audio features to movie arousal scores",
+    "formula": "musicTier = floor((arousalScore - 20) / 20)",
+    "weights": {
+      "energy": 0.5,
+      "tempo": 0.3,
+      "danceability": 0.1,
+      "loudness": 0.1
+    },
+    "adjustments": {
+      "userPreference": "Allow users to shift tier ±1",
+      "moodOverride": "Manual mood selection overrides calculation"
+    }
+  },
+  
+  "playlistGeneration": {
+    "minTracks": 20,
+    "maxTracks": 50,
+    "movieRuntime": {
+      "short": "< 90 min = 20 tracks",
+      "medium": "90-120 min = 30 tracks",
+      "long": "> 120 min = 50 tracks"
+    },
+    "diversity": "Include 70% primary tier, 20% tier±1, 10% variety"
+  },
+  
+  "researchBacking": {
+    "arousalTheory": "Music arousal levels correlate with movie intensity (Juslin & Västfjäll, 2008)",
+    "sensationSeeking": "High sensation-seekers prefer intense music (Zuckerman, 2007)",
+    "crossModalMatching": "Auditory and gustatory preferences align in sensation-seekers (Penn State study)",
+    "notes": "Music recommendations based on validated arousal/valence model combined with Penn State spicy food research framework"
+  }
+}

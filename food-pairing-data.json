@@ -1,0 +1,303 @@
+{
+  "spiceLevels": {
+    "0": {
+      "name": "Comfort / No Spice",
+      "description": "Warm, familiar, soothing foods perfect for relaxed viewing",
+      "emoji": "😌",
+      "cuisines": {
+        "american": [
+          "Mac & cheese",
+          "Grilled cheese sandwich",
+          "Chicken pot pie",
+          "Mashed potatoes",
+          "Buttermilk biscuits"
+        ],
+        "italian": [
+          "Pasta primavera",
+          "Margherita pizza",
+          "Risotto",
+          "Bruschetta",
+          "Caprese salad"
+        ],
+        "japanese": [
+          "Sushi",
+          "Teriyaki chicken",
+          "Miso soup",
+          "Edamame",
+          "Onigiri"
+        ],
+        "french": [
+          "Quiche",
+          "Croissants",
+          "French onion soup",
+          "Crème brûlée",
+          "Ratatouille"
+        ],
+        "desserts": [
+          "Chocolate cake",
+          "Vanilla ice cream",
+          "Fruit tart",
+          "Tiramisu",
+          "Cheesecake"
+        ]
+      }
+    },
+    "1": {
+      "name": "Mild",
+      "description": "Gentle warmth with subtle spices",
+      "emoji": "🌶️",
+      "cuisines": {
+        "italian": [
+          "Pasta arrabiata (mild)",
+          "Pepperoni pizza",
+          "Italian sausage pasta"
+        ],
+        "mexican": [
+          "Soft tacos with salsa verde",
+          "Quesadillas",
+          "Bean and cheese burritos"
+        ],
+        "indian": [
+          "Butter chicken (mild)",
+          "Palak paneer",
+          "Vegetable korma"
+        ],
+        "mediterranean": [
+          "Harissa hummus",
+          "Spiced falafel",
+          "Shakshuka"
+        ],
+        "american": [
+          "BBQ wings (mild)",
+          "Cajun fries",
+          "Spiced popcorn with paprika"
+        ]
+      }
+    },
+    "2": {
+      "name": "Medium",
+      "description": "Noticeable heat that enhances the experience",
+      "emoji": "🌶️🌶️",
+      "cuisines": {
+        "mexican": [
+          "Tacos al pastor",
+          "Loaded nachos",
+          "Jalapeño poppers",
+          "Street corn (elote)",
+          "Chipotle burrito bowl"
+        ],
+        "american": [
+          "Buffalo wings",
+          "Jalapeño burger",
+          "Spicy BBQ ribs",
+          "Hot chicken sandwich"
+        ],
+        "asian": [
+          "General Tso's chicken",
+          "Sriracha shrimp",
+          "Spicy ramen",
+          "Pad Thai (medium spice)"
+        ],
+        "indian": [
+          "Chicken tikka masala",
+          "Vindaloo (medium)",
+          "Spicy samosas"
+        ]
+      }
+    },
+    "3": {
+      "name": "Hot",
+      "description": "Intense heat for thrill-seekers",
+      "emoji": "🌶️🌶️🌶️",
+      "cuisines": {
+        "thai": [
+          "Thai red curry",
+          "Tom yum soup",
+          "Pad krapow (holy basil stir-fry)",
+          "Spicy papaya salad"
+        ],
+        "mexican": [
+          "Habanero salsa tacos",
+          "Chile rellenos",
+          "Spicy pozole"
+        ],
+        "caribbean": [
+          "Jerk chicken",
+          "Peri-peri shrimp",
+          "Scotch bonnet wings"
+        ],
+        "indian": [
+          "Phaal curry",
+          "Spicy biryani",
+          "Andhra chili chicken"
+        ],
+        "korean": [
+          "Tteokbokki (spicy rice cakes)",
+          "Gochugaru wings",
+          "Kimchi jjigae"
+        ]
+      }
+    },
+    "4": {
+      "name": "Very Hot",
+      "description": "Extreme heat for maximum sensation-seekers",
+      "emoji": "🌶️🌶️🌶️🌶️",
+      "cuisines": {
+        "american": [
+          "Nashville hot chicken",
+          "Ghost pepper wings",
+          "Carolina reaper burger"
+        ],
+        "korean": [
+          "Buldak (fire chicken) noodles",
+          "2x Spicy ramen",
+          "Kimchi with gochugaru"
+        ],
+        "chinese": [
+          "Sichuan dry chili chicken",
+          "Mapo tofu (extra spicy)",
+          "Chongqing hot pot"
+        ],
+        "indian": [
+          "Vindaloo (extra hot)",
+          "Ghost pepper curry",
+          "Bhut jolokia chutney"
+        ],
+        "thai": [
+          "Jungle curry",
+          "Thai bird's eye chili stir-fry"
+        ],
+        "mexican": [
+          "Habanero salsa",
+          "Ghost pepper tacos"
+        ]
+      }
+    }
+  },
+  
+  "drinkPairings": {
+    "spicy": {
+      "alcoholic": [
+        "Ice-cold lager",
+        "Wheat beer",
+        "Margarita",
+        "Paloma",
+        "White wine (Riesling)"
+      ],
+      "nonAlcoholic": [
+        "Mango lassi",
+        "Horchata",
+        "Coconut water",
+        "Iced Thai tea",
+        "Lemonade",
+        "Milk"
+      ]
+    },
+    "mild": {
+      "alcoholic": [
+        "Red wine",
+        "IPA",
+        "Sangria",
+        "Mojito"
+      ],
+      "nonAlcoholic": [
+        "Iced tea",
+        "Sparkling water",
+        "Fruit juice",
+        "Soda"
+      ]
+    },
+    "comfort": {
+      "alcoholic": [
+        "Wine (any)",
+        "Beer",
+        "Cocktails"
+      ],
+      "nonAlcoholic": [
+        "Hot chocolate",
+        "Coffee",
+        "Milk tea",
+        "Sparkling cider"
+      ]
+    }
+  },
+  
+  "snackOptions": {
+    "0": [
+      "Popcorn (butter/salt)",
+      "Pretzels",
+      "Cheese & crackers",
+      "Fruit plate",
+      "Cookies"
+    ],
+    "1": [
+      "Spiced nuts",
+      "Mild salsa & chips",
+      "Seasoned popcorn"
+    ],
+    "2": [
+      "Hot Cheetos",
+      "Spicy trail mix",
+      "Jalapeño chips",
+      "Wasabi peas"
+    ],
+    "3": [
+      "Flamin' Hot snacks",
+      "Spicy beef jerky",
+      "Thai chili chips"
+    ],
+    "4": [
+      "Ghost pepper chips",
+      "Carolina reaper jerky",
+      "Extreme heat nuts"
+    ]
+  },
+  
+  "movieGenreFoodSuggestions": {
+    "Action": {
+      "recommended": ["Buffalo wings", "Spicy tacos", "Nashville hot chicken"],
+      "spiceLevel": 3
+    },
+    "Horror": {
+      "recommended": ["Spicy ramen", "Thai curry", "Chili oil dumplings"],
+      "spiceLevel": 3
+    },
+    "Thriller": {
+      "recommended": ["Jalapeño poppers", "Spicy BBQ", "Korean fried chicken"],
+      "spiceLevel": 2
+    },
+    "Comedy": {
+      "recommended": ["Loaded nachos", "Jalapeño burger", "Street corn"],
+      "spiceLevel": 2
+    },
+    "Romance": {
+      "recommended": ["Pasta", "Sushi", "Cheese board", "Chocolate"],
+      "spiceLevel": 0
+    },
+    "Drama": {
+      "recommended": ["Risotto", "Grilled cheese", "Comfort food"],
+      "spiceLevel": 0
+    },
+    "Adventure": {
+      "recommended": ["Jerk chicken", "Spicy lamb skewers", "Thai stir-fry"],
+      "spiceLevel": 3
+    },
+    "Science Fiction": {
+      "recommended": ["Sushi", "Ramen", "Asian fusion"],
+      "spiceLevel": 1
+    }
+  },
+  
+  "researchInfo": {
+    "citation": "Byrnes, N. K., & Hayes, J. E. (2015). Personality factors predict spicy food liking and intake. Food Quality and Preference, 28(1), 213-221.",
+    "doi": "10.1016/j.foodqual.2012.09.008",
+    "url": "https://pure.psu.edu/en/publications/personality-factors-predict-spicy-food-liking-and-intake",
+    "keyFindings": [
+      "Sensation-seeking personality strongly predicts spicy food liking",
+      "Individuals high in sensation-seeking ~6× more likely to enjoy capsaicin burn",
+      "Action/adventure preferences correlate with spice tolerance",
+      "Reward sensitivity mediates the relationship"
+    ],
+    "methodology": "Peer-reviewed study at Penn State University measuring personality traits (UPPS-P scale) and capsaicin food preferences in controlled settings"
+  }
+}

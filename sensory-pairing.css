@@ -1,0 +1,613 @@
+/**
+ * Sensory Pairing Components CSS
+ * Styled to match MovieMatch dark theme with Spotify green accents
+ */
+
+/* ============================================
+   Main Container
+   ============================================ */
+
+.sensory-pairing {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2rem 0;
+  border: 1px solid #2a2a2a;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* ============================================
+   Arousal Indicator
+   ============================================ */
+
+.arousal-indicator {
+  margin-bottom: 2rem;
+}
+
+.arousal-bar {
+  width: 100%;
+  height: 8px;
+  background: #2a2a2a;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.arousal-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4a9d5f 0%, #1DB954 50%, #ff6b6b 100%);
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 10px rgba(29, 185, 84, 0.5);
+}
+
+.arousal-label {
+  text-align: center;
+  color: #999;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================
+   Pairing Sections (Food & Music)
+   ============================================ */
+
+.pairing-section {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #2a2a2a;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pairing-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(29, 185, 84, 0.1);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #2a2a2a;
+}
+
+.section-header h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  color: #fff;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.spice-badge,
+.music-badge {
+  background: linear-gradient(135deg, #1DB954 0%, #1aa34a 100%);
+  color: #000;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(29, 185, 84, 0.3);
+}
+
+.pairing-description {
+  color: #aaa;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+/* ============================================
+   Food Recommendations Grid
+   ============================================ */
+
+.recommendations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.cuisine-category h4 {
+  color: #1DB954;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.cuisine-category ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cuisine-category li {
+  color: #ddd;
+  padding: 0.4rem 0;
+  font-size: 0.95rem;
+  border-bottom: 1px solid #2a2a2a;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.cuisine-category li:hover {
+  color: #1DB954;
+  padding-left: 0.5rem;
+}
+
+.cuisine-category li:last-child {
+  border-bottom: none;
+}
+
+/* ============================================
+   Drink Suggestions
+   ============================================ */
+
+.drink-suggestions {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #2a2a2a;
+}
+
+.drink-suggestions h4 {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.drink-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.drink-tag {
+  background: #2a2a2a;
+  color: #ddd;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.drink-tag:hover {
+  background: #1DB954;
+  color: #000;
+}
+
+/* ============================================
+   Music Pairing
+   ============================================ */
+
+.genre-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.genre-tag {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+  color: #1DB954;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid #2a2a2a;
+  transition: all 0.2s ease;
+}
+
+.genre-tag:hover {
+  background: #1DB954;
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(29, 185, 84, 0.3);
+}
+
+.artist-recommendations,
+.playlist-suggestions {
+  margin-top: 1rem;
+}
+
+.artist-recommendations h4,
+.playlist-suggestions h4 {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.artist-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.artist-tag {
+  background: #2a2a2a;
+  color: #ddd;
+  padding: 0.4rem 0.8rem;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.artist-tag:hover {
+  background: #1DB954;
+  color: #000;
+}
+
+.playlist-suggestions ul {
+  list-style: none;
+  padding: 0;
+}
+
+.playlist-suggestions li {
+  color: #ddd;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #2a2a2a;
+  transition: color 0.2s ease;
+}
+
+.playlist-suggestions li:hover {
+  color: #1DB954;
+}
+
+/* ============================================
+   Research Section
+   ============================================ */
+
+.research-section {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #2a2a2a;
+  text-align: center;
+}
+
+.research-toggle {
+  background: linear-gradient(135deg, #1DB954 0%, #1aa34a 100%);
+  color: #000;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 24px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(29, 185, 84, 0.3);
+}
+
+.research-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(29, 185, 84, 0.4);
+}
+
+.research-details {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: #2a2a2a;
+  border-radius: 12px;
+  text-align: left;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.research-citation {
+  color: #aaa;
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.research-findings {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.research-findings li {
+  color: #ddd;
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.research-findings li:before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #1DB954;
+  font-weight: bold;
+}
+
+.research-link {
+  display: inline-block;
+  color: #1DB954;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 1rem;
+  transition: color 0.2s ease;
+}
+
+.research-link:hover {
+  color: #25e066;
+  text-decoration: underline;
+}
+
+/* ============================================
+   Personality Radar Chart
+   ============================================ */
+
+.personality-radar-container {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2rem 0;
+  border: 1px solid #2a2a2a;
+}
+
+.personality-radar-container h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.profile-subtitle {
+  color: #999;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.profile-insights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.profile-insight {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #2a2a2a;
+}
+
+.insight-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.insight-label {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.insight-score {
+  color: #1DB954;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.insight-bar {
+  width: 100%;
+  height: 6px;
+  background: #2a2a2a;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.insight-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #1DB954 0%, #1aa34a 100%);
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.insight-description {
+  color: #aaa;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.research-attribution {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #2a2a2a;
+  text-align: center;
+}
+
+.research-attribution p {
+  color: #999;
+  font-size: 0.85rem;
+}
+
+.research-attribution a {
+  color: #1DB954;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.research-attribution a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================
+   Quick Pairing Card (Compact)
+   ============================================ */
+
+.quick-pairing-card {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(29, 185, 84, 0.1);
+  border-radius: 8px;
+  margin-top: 0.5rem;
+}
+
+.pairing-icons {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.pairing-icons span {
+  font-size: 1.2rem;
+}
+
+.pairing-text p {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #aaa;
+}
+
+/* ============================================
+   Profile Badge (Compact)
+   ============================================ */
+
+.profile-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #1DB954 0%, #1aa34a 100%);
+  color: #000;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(29, 185, 84, 0.3);
+}
+
+.badge-emoji {
+  font-size: 1.2rem;
+}
+
+/* ============================================
+   Pairing Preferences
+   ============================================ */
+
+.pairing-preferences {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border: 1px solid #2a2a2a;
+}
+
+.pairing-preferences h3 {
+  color: #fff;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.preference-option {
+  margin-bottom: 1.5rem;
+}
+
+.preference-option label {
+  color: #ddd;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.preference-option input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #1DB954;
+  cursor: pointer;
+}
+
+.cuisine-checkboxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.8rem;
+  margin-top: 0.8rem;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media (max-width: 768px) {
+  .sensory-pairing {
+    padding: 1.5rem;
+  }
+  
+  .recommendations-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+  
+  .profile-insights {
+    grid-template-columns: 1fr;
+  }
+  
+  .cuisine-checkboxes {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sensory-pairing,
+.personality-radar-container {
+  animation: fadeIn 0.5s ease;
+}
+
+/* ============================================
+   Print Styles (for sharing)
+   ============================================ */
+
+@media print {
+  .research-toggle {
+    display: none;
+  }
+  
+  .research-details {
+    display: block !important;
+  }
+  
+  .sensory-pairing {
+    border: 2px solid #000;
+  }
+}

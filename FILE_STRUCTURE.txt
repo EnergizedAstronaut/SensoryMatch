@@ -1,0 +1,141 @@
+moviematch-sensory-pairing/
+│
+├── 📄 README.md                          # Main documentation
+├── 📄 QUICKSTART.md                      # 5-minute setup guide
+├── 📄 INSTALLATION_CHECKLIST.md          # Step-by-step checklist
+├── 📄 package.json                       # NPM package configuration
+│
+├── 📁 core/
+│   └── sensory-pairing-engine.js        # Main arousal calculation engine
+│                                         # calculateArousalScore()
+│                                         # getSensoryPairing()
+│                                         # calculatePersonalityProfile()
+│
+├── 📁 components/
+│   ├── SensoryPairing.jsx               # Main pairing UI component
+│   │                                     # Shows food + music recommendations
+│   │                                     # Includes PairingPreferences
+│   │                                     # Includes QuickPairingCard
+│   │
+│   └── PersonalityRadar.jsx             # Radar chart visualization
+│                                         # Shows sensation-seeking profile
+│                                         # Includes ProfileBadge
+│                                         # exportProfileData() for cross-app
+│
+├── 📁 data/
+│   ├── food-pairing-data.json           # 100+ food items across 5 spice levels
+│   │                                     # Organized by cuisine type
+│   │                                     # Includes drink pairings
+│   │                                     # Research citations included
+│   │
+│   └── music-pairing-data.json          # 5 music intensity tiers
+│                                         # Spotify playlist suggestions
+│                                         # Audio feature mappings
+│                                         # Genre classifications
+│
+├── 📁 styles/
+│   └── sensory-pairing.css              # Complete component styling
+│                                         # Dark theme with Spotify green
+│                                         # Responsive breakpoints
+│                                         # Animation keyframes
+│                                         # Print-friendly styles
+│
+├── 📁 docs/
+│   ├── README.md                        # Comprehensive documentation
+│   │                                     # Scientific foundation
+│   │                                     # Algorithm details
+│   │                                     # API reference
+│   │
+│   └── INTEGRATION_GUIDE.md             # Step-by-step integration
+│                                         # MovieMatch setup
+│                                         # Visualisify setup
+│                                         # Cross-platform sync
+│                                         # Troubleshooting guide
+│
+├── 📁 examples/
+│   └── EXAMPLE_INTEGRATIONS.js          # 12 ready-to-use code examples
+│                                         # Movie detail page integration
+│                                         # Dashboard setup
+│                                         # Togetherness mode
+│                                         # Batch processing
+│                                         # Spotify integration
+│                                         # And 7 more examples
+│
+└── 📁 tests/
+    └── test-cases.js                    # Comprehensive test suite
+                                          # 8 test suites included
+                                          # Arousal score validation
+                                          # Edge case testing
+                                          # Consistency checks
+                                          # Boundary validation
+
+═══════════════════════════════════════════════════════════════════════════
+
+QUICK REFERENCE
+
+Core Functions (core/sensory-pairing-engine.js):
+  • calculateArousalScore(movie) → 0-100 score
+  • getSensoryPairing(movie, preferences) → {food, music, research}
+  • getSpiceLevel(arousalScore) → 0-4 spice level
+  • getMusicTier(arousalScore) → 0-4 music tier
+  • calculatePersonalityProfile(movies[]) → personality scores
+
+React Components (components/):
+  • <SensoryPairing movie={...} userPreferences={...} />
+  • <PersonalityRadar movies={...} spotifyData={...} />
+  • <QuickPairingCard movie={...} compact />
+  • <ProfileBadge movies={...} />
+
+Data Files (data/):
+  • food-pairing-data.json - 5 spice tiers × multiple cuisines
+  • music-pairing-data.json - 5 music tiers × Spotify integration
+
+═══════════════════════════════════════════════════════════════════════════
+
+FILE SIZES & COMPLEXITY
+
+sensory-pairing-engine.js     ~8 KB    Core logic, well-commented
+SensoryPairing.jsx            ~7 KB    Main UI component
+PersonalityRadar.jsx          ~8 KB    Visualization component
+food-pairing-data.json        ~8 KB    100+ food items
+music-pairing-data.json       ~8 KB    Genre mappings + Spotify
+sensory-pairing.css          ~11 KB    Complete styling
+INTEGRATION_GUIDE.md         ~12 KB    Detailed guide
+EXAMPLE_INTEGRATIONS.js      ~11 KB    12 code examples
+test-cases.js                ~10 KB    Full test suite
+
+Total Package Size: ~85 KB (uncompressed)
+
+═══════════════════════════════════════════════════════════════════════════
+
+DEPENDENCIES
+
+Required:
+  • React 18+
+  • Recharts 2.5+
+
+Optional:
+  • Spotify Web API (for playlist creation)
+  • TMDB API (for movie keywords - enhances accuracy)
+
+═══════════════════════════════════════════════════════════════════════════
+
+LICENSE & ATTRIBUTION
+
+License: MIT (free to use, modify, distribute)
+
+Research Citation (required to display):
+  Byrnes, N. K., & Hayes, J. E. (2015). Personality factors predict 
+  spicy food liking and intake. Food Quality and Preference, 28(1), 213-221.
+  https://pure.psu.edu/en/publications/personality-factors-predict-spicy-food-liking-and-intake
+
+═══════════════════════════════════════════════════════════════════════════
+
+SUPPORT
+
+Issues: GitHub Issues
+Questions: GitHub Discussions
+Docs: See docs/ folder
+Examples: See examples/ folder
+
+═══════════════════════════════════════════════════════════════════════════
