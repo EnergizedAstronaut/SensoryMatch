@@ -1,51 +1,62 @@
-# 🎬🍜🎵 MovieMatch Sensory Pairing Integration
+# 🎬🍽️ MovieMatch Food Pairing Integration
 
-**Transform your movie app into a complete sensory experience platform**
+**Transform movie recommendations into complete dining experiences**
 
-[![Research-Backed](https://img.shields.io/badge/Research-Penn%20State-blue)](https://pure.psu.edu/en/publications/personality-factors-predict-spicy-food-liking-and-intake)
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-
-A research-backed system that pairs movies with food and music based on arousal theory and Penn State's sensation-seeking research. Users who enjoy *Mad Max: Fury Road* get paired with Nashville hot chicken 🔥 and EDM playlists ⚡, while *The Notebook* fans get comfort food 😌 and classical music 🎹.
-
----
-
-## ✨ What This Does
-
-🍽️ **Food Recommendations** - 5-tier spice system (Comfort → Very Hot)  
-🎵 **Music Pairings** - Spotify-integrated playlists  
-🧠 **Personality Insights** - Radar chart visualization  
-👥 **Group Mode** - Optimize for multiple viewers  
-🔬 **Research-Backed** - Based on peer-reviewed Penn State study
+A research-backed system that pairs movies with food based on arousal theory and Penn State's sensation-seeking research.
 
 ---
 
 ## 🔬 Scientific Foundation
 
+This integration is built on peer-reviewed research from Penn State University:
+
 > **Byrnes, N. K., & Hayes, J. E. (2015).** Personality factors predict spicy food liking and intake. *Food Quality and Preference*, 28(1), 213-221.
 
-**Key Finding**: High sensation-seekers (who love action movies) are ~6× more likely to enjoy spicy food.
+**Key Finding**: Individuals with high sensation-seeking personalities (who prefer action movies, adventure, and intense experiences) are approximately **6× more likely** to enjoy spicy foods than low sensation-seekers.
 
-📖 [Read the study](https://pure.psu.edu/en/publications/personality-factors-predict-spicy-food-liking-and-intake)
+- **High-intensity movies** (Action, Thriller) → **Spicy food** (Nashville hot chicken, Thai curry)
+- **Low-intensity movies** (Romance, Drama) → **Comfort food** (Mac & cheese, sushi)
+
+📖 [Read the full study](https://pure.psu.edu/en/publications/personality-factors-predict-spicy-food-liking-and-intake)
+
+---
+
+## ✨ What This Does
+
+### For MovieMatch Users
+- **🍽️ Food recommendations** based on movie intensity (5-tier spice scale: Comfort → Very Hot)
+- **🧠 Personality insights** via radar chart visualization showing your taste profile
+- **👥 Group mode** to find perfect food pairings for movie nights with friends
+- **🔬 Research-backed** recommendations you can trust
 
 ---
 
 ## 🚀 Quick Start
 
-### 1. Install
+### 1. Install in MovieMatch
+
 ```bash
 cd moviematch
-npm install recharts
+npm install recharts  # For radar charts
 ```
 
 ### 2. Copy Files
+
 ```bash
-cp -r sensory-pairing/core/* utils/
-cp -r sensory-pairing/components/* components/
-cp -r sensory-pairing/data/* data/
-cp -r sensory-pairing/styles/* styles/
+# Core engine & data
+cp core/sensory-pairing-engine.js moviematch/utils/
+cp data/food-pairing-data.json moviematch/data/
+
+# Components
+cp components/SensoryPairing.jsx moviematch/components/
+cp components/PersonalityRadar.jsx moviematch/components/
+
+# Styles
+cp styles/sensory-pairing.css moviematch/styles/
 ```
 
 ### 3. Use in Your App
+
 ```jsx
 import SensoryPairing from '@/components/SensoryPairing';
 
@@ -58,54 +69,27 @@ import SensoryPairing from '@/components/SensoryPairing';
 
 ---
 
-## 📦 Package Structure
-
-```
-moviematch-sensory-pairing/
-├── core/
-│   └── sensory-pairing-engine.js    # Arousal calculation logic
-├── components/
-│   ├── SensoryPairing.jsx           # Main pairing UI
-│   └── PersonalityRadar.jsx         # Radar chart
-├── data/
-│   ├── food-pairing-data.json       # 100+ food items
-│   └── music-pairing-data.json      # Music tiers + Spotify
-├── styles/
-│   └── sensory-pairing.css          # Complete styling
-├── docs/
-│   ├── README.md                    # Full documentation
-│   └── INTEGRATION_GUIDE.md         # Step-by-step setup
-├── examples/
-│   └── EXAMPLE_INTEGRATIONS.js      # 12 code examples
-└── tests/
-    └── test-cases.js                # Validation suite
-```
-
----
-
 ## 💡 How It Works
 
-### Arousal Score Algorithm
+Every movie gets an **arousal score (0-100)** based on:
 
-Every movie gets a score (0-100) based on:
-
-1. **Genres** (30 pts max) - Action/Horror/Thriller score high
-2. **Keywords** (40 pts max) - 'fight', 'chase', 'intense' add points
-3. **Popularity** (10 pts max) - Higher ratings boost score
-4. **Runtime** (10 pts max) - Fast-paced films get bonus
+1. **Genres** - Action/Thriller/Horror score high
+2. **Keywords** - 'fight', 'chase', 'intense' add points
+3. **Popularity** - Higher ratings boost score
+4. **Runtime** - Fast-paced films get bonus
 
 **Example**:
-- *Mad Max: Fury Road* → 92/100 → 🌶️🌶️🌶️🌶️ Very Hot + ⚡ EDM
-- *The Notebook* → 8/100 → 😌 Comfort food + 🎹 Classical
+- *Mad Max: Fury Road* → 92/100 → 🌶️🌶️🌶️🌶️ Very Hot
+- *The Notebook* → 8/100 → 😌 Comfort food
 
 ### Pairing Logic
 
 ```
-Arousal 80-100 → Very Hot food + EDM/Metal
-Arousal 60-79  → Hot food + Hip-Hop/Rock
-Arousal 40-59  → Medium food + Pop/Indie
-Arousal 20-39  → Mild food + Jazz/Lo-fi
-Arousal 0-19   → Comfort food + Classical/Ambient
+Arousal 80-100 → Very Hot food (Ghost peppers, Nashville hot chicken)
+Arousal 60-79  → Hot food (Thai curry, buffalo wings)
+Arousal 40-59  → Medium food (Tacos, jalapeños)
+Arousal 20-39  → Mild food (Light spice)
+Arousal 0-19   → Comfort food (Mac & cheese, sushi)
 ```
 
 ---
@@ -116,25 +100,19 @@ Arousal 0-19   → Comfort food + Classical/Ambient
 ```jsx
 <SensoryPairing movie={movie} userPreferences={prefs} />
 ```
-Shows full food + music recommendations with research attribution.
+Shows full food recommendations with research attribution.
 
 ### Movie Cards (Compact)
 ```jsx
 <QuickPairingCard movie={movie} compact />
 ```
-Shows just emoji indicators (🌶️⚡).
+Shows just spice emoji indicator (🌶️).
 
 ### Dashboard Insights
 ```jsx
 <PersonalityRadar movies={watchHistory} />
 ```
 Visualizes user personality profile.
-
-### Togetherness Mode
-```jsx
-<TogethernessPairings person1Movies={...} person2Movies={...} />
-```
-Finds optimal pairings for group viewing.
 
 ---
 
@@ -152,30 +130,9 @@ Finds optimal pairings for group viewing.
       "Ghost pepper wings",
       "Buldak fire noodles"
     ]
-  },
-  "music": {
-    "tier": 4,
-    "genres": ["EDM", "Metal", "Industrial"],
-    "playlists": ["Beast Mode", "Metal Essentials"]
   }
 }
 ```
-
----
-
-## 🔗 Integration Points
-
-### MovieMatch Features
-- ✅ Movie detail pages
-- ✅ Recommendation engine
-- ✅ Togetherness mode
-- ✅ User dashboard
-- ✅ Movie cards/lists
-
-### Visualisify Integration
-- ✅ Import MovieMatch profiles
-- ✅ Combined Spotify + Movie insights
-- ✅ Cross-platform personality sync
 
 ---
 
@@ -186,7 +143,6 @@ Finds optimal pairings for group viewing.
 const preferences = {
   noSpice: true,                    // Disable spicy foods
   cuisinePreferences: ['italian'],  // Filter cuisines
-  musicGenres: ['jazz']             // Music preferences
 };
 ```
 
@@ -195,7 +151,6 @@ All components use namespaced CSS classes you can override:
 ```css
 .sensory-pairing { /* Main container */ }
 .spice-badge { /* Spice level badge */ }
-.personality-radar-container { /* Radar chart */ }
 ```
 
 ---
@@ -204,9 +159,8 @@ All components use namespaced CSS classes you can override:
 
 - **[QUICKSTART.md](QUICKSTART.md)** - Get running in 5 minutes
 - **[docs/INTEGRATION_GUIDE.md](docs/INTEGRATION_GUIDE.md)** - Complete setup guide
-- **[docs/README.md](docs/README.md)** - Full documentation
-- **[examples/EXAMPLE_INTEGRATIONS.js](examples/EXAMPLE_INTEGRATIONS.js)** - 12 code examples
-- **[tests/test-cases.js](tests/test-cases.js)** - Test suite
+- **[examples/](examples/)** - Ready-to-use code examples
+- **[tests/](tests/)** - Test suite
 
 ---
 
@@ -217,29 +171,32 @@ Run the test suite:
 npm test
 ```
 
-Or manually:
-```bash
-node tests/test-cases.js
-```
-
 Tests validate:
 - ✅ Arousal score calculations
 - ✅ Edge case handling
 - ✅ User preference overrides
-- ✅ Personality profile generation
 - ✅ Consistency across runs
 
 ---
 
-## 🤝 Contributing
+## 🎯 Roadmap
 
-Improvements welcome!
+### v1.0 ✅ (Current)
+- Core arousal engine
+- Food recommendations (5 levels)
+- Personality visualization
+- Research attribution
 
-**Priority areas**:
-- Regional cuisine mappings
-- Music genre expansion
-- Mobile UX enhancements
-- Performance optimizations
+### v1.1 🔜 (Next)
+- Recipe link integration
+- Shareable pairing cards
+- Group optimization improvements
+- Music pairing integration
+
+### v2.0 🔮 (Future)
+- ML-based refinement
+- Food delivery API integration
+- Regional cuisine expansion
 
 ---
 
@@ -249,45 +206,14 @@ MIT License - use freely in your projects!
 
 ---
 
-## 🎯 Roadmap
-
-### v1.0 ✅ (Current)
-- Core arousal engine
-- Food recommendations (5 levels)
-- Music pairings (5 tiers)
-- Personality visualization
-- Research attribution
-
-### v1.1 🔜 (Next)
-- Recipe link integration
-- Spotify playlist auto-creation
-- Shareable pairing cards
-- Group optimization improvements
-
-### v2.0 🔮 (Future)
-- ML-based refinement
-- Food delivery API integration
-- Time-of-day recommendations
-- Regional cuisine expansion
-
----
-
 ## 🙏 Credits
 
 - **Research**: Penn State University (Byrnes & Hayes, 2015)
 - **Movie Data**: The Movie Database (TMDB)
-- **Music**: Spotify Audio Features API
 - **Built with**: React + Recharts
 
 ---
 
-## 📞 Support
+**Transform movie nights into complete dining experiences** 🎬🍽️
 
-- **Issues**: [GitHub Issues](https://github.com/EnergizedAstronaut/moviematch/issues)
-- **Questions**: [Discussions](https://github.com/EnergizedAstronaut/moviematch/discussions)
-
----
-
-**Transform movie nights into complete sensory experiences** 🎬🍜🎵
-
-Made with ❤️ for movie lovers, food enthusiasts, and music fans.
+Made with ❤️ for movie lovers and food enthusiasts.

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { calculateArousalScore, getSensoryPairing } from '../utils/sensory-pairing-engine';
 import foodData from '../data/food-pairing-data.json';
-import musicData from '../data/music-pairing-data.json';
 
 /**
  * SensoryPairing Component
@@ -19,10 +18,8 @@ export default function SensoryPairing({ movie, userPreferences = {} }) {
   const pairing = getSensoryPairing(movie, userPreferences);
   const arousalScore = pairing.movie.arousalScore;
   const spiceLevel = pairing.food.spiceLevel;
-  const musicTier = pairing.music.tier;
   
   const foodInfo = foodData.spiceLevels[spiceLevel];
-  const musicInfo = musicData.musicTiers[musicTier];
   
   return (
     <div className="sensory-pairing">
@@ -70,41 +67,6 @@ export default function SensoryPairing({ movie, userPreferences = {} }) {
                 <span key={idx} className="drink-tag">{drink}</span>
               ))}
           </div>
-        </div>
-      </div>
-      
-      {/* Music Pairing */}
-      <div className="pairing-section music-pairing">
-        <div className="section-header">
-          <h3>🎵 Music Pairing</h3>
-          <span className="music-badge">{musicInfo.emoji} {musicInfo.name}</span>
-        </div>
-        
-        <p className="pairing-description">{musicInfo.description}</p>
-        
-        <div className="genre-tags">
-          {musicInfo.genres.map((genre, idx) => (
-            <span key={idx} className="genre-tag">{genre}</span>
-          ))}
-        </div>
-        
-        <div className="artist-recommendations">
-          <h4>🎧 Artists to Try</h4>
-          <div className="artist-list">
-            {musicInfo.artists.slice(0, 5).map((artist, idx) => (
-              <span key={idx} className="artist-tag">{artist}</span>
-            ))}
-          </div>
-        </div>
-        
-        {/* Spotify Playlists */}
-        <div className="playlist-suggestions">
-          <h4>📱 Spotify Playlists</h4>
-          <ul>
-            {musicInfo.playlists.spotify.slice(0, 3).map((playlist, idx) => (
-              <li key={idx}>{playlist}</li>
-            ))}
-          </ul>
         </div>
       </div>
       
@@ -194,18 +156,15 @@ export function PairingPreferences({ preferences, onChange }) {
 export function QuickPairingCard({ movie, compact = true }) {
   const pairing = getSensoryPairing(movie);
   const foodInfo = foodData.spiceLevels[pairing.food.spiceLevel];
-  const musicInfo = musicData.musicTiers[pairing.music.tier];
   
   return (
     <div className="quick-pairing-card">
       <div className="pairing-icons">
         <span title={foodInfo.name}>{foodInfo.emoji}</span>
-        <span title={musicInfo.name}>{musicInfo.emoji}</span>
       </div>
       {!compact && (
         <div className="pairing-text">
           <p>{foodInfo.name}</p>
-          <p>{musicInfo.name}</p>
         </div>
       )}
     </div>

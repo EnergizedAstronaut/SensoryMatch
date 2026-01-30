@@ -142,18 +142,7 @@ export function getSpiceLevel(arousalScore) {
   return 0; // No spice / Comfort
 }
 
-/**
- * Map arousal score to music intensity tier
- * @param {number} arousalScore - Arousal score (0-100)
- * @returns {number} Music tier (0-4)
- */
-export function getMusicTier(arousalScore) {
-  if (arousalScore >= 80) return 4; // EDM/Metal/Hard Rock
-  if (arousalScore >= 60) return 3; // Hip-Hop/Alt Rock
-  if (arousalScore >= 40) return 2; // Indie/Pop
-  if (arousalScore >= 20) return 1; // Jazz/Lo-fi
-  return 0; // Classical/Ambient
-}
+// Music features removed - food-only version
 
 /**
  * Get complete sensory pairing for a movie
@@ -166,7 +155,6 @@ export function getMusicTier(arousalScore) {
 export function getSensoryPairing(movie, options = {}) {
   const arousalScore = calculateArousalScore(movie);
   const spiceLevel = options.noSpice ? 0 : getSpiceLevel(arousalScore);
-  const musicTier = getMusicTier(arousalScore);
   
   return {
     movie: {
@@ -178,11 +166,6 @@ export function getSensoryPairing(movie, options = {}) {
       spiceLevel,
       spiceName: getSpiceLevelName(spiceLevel),
       recommendations: getFoodRecommendations(spiceLevel, options.cuisinePreferences)
-    },
-    music: {
-      tier: musicTier,
-      genres: getMusicGenres(musicTier),
-      recommendations: getMusicRecommendations(musicTier)
     },
     research: {
       citation: 'Byrnes, N. K., & Hayes, J. E. (2015). Food Quality and Preference.',
@@ -215,28 +198,7 @@ function getFoodRecommendations(spiceLevel, cuisinePrefs = []) {
   return recommendations[spiceLevel] || [];
 }
 
-/**
- * Helper: Get music genres for tier
- */
-function getMusicGenres(tier) {
-  const genres = {
-    4: ['EDM', 'Metal', 'Hard Rock', 'Industrial'],
-    3: ['Hip-Hop', 'Alternative Rock', 'Punk', 'Drum & Bass'],
-    2: ['Indie', 'Pop', 'Funk', 'Dance'],
-    1: ['Jazz', 'Lo-fi', 'Chillhop', 'R&B'],
-    0: ['Classical', 'Ambient', 'New Age', 'Acoustic']
-  };
-  
-  return genres[tier] || [];
-}
-
-/**
- * Helper: Get music recommendations for tier
- */
-function getMusicRecommendations(tier) {
-  // This will be expanded with Spotify integration
-  return getMusicGenres(tier);
-}
+// Music features removed - future enhancement
 
 /**
  * Batch processing for multiple movies
@@ -250,7 +212,7 @@ export function batchSensoryPairings(movies, options = {}) {
 
 /**
  * Calculate personality profile from movie history
- * Used for Visualisify integration
+ * Used for personality visualization
  * @param {Object[]} movies - User's movie history
  * @returns {Object} Personality scores
  */
@@ -259,7 +221,6 @@ export function calculatePersonalityProfile(movies) {
     return {
       sensationSeeking: 50,
       spiceTolerance: 50,
-      energyPreference: 50,
       comfortSeeking: 50
     };
   }
@@ -271,7 +232,6 @@ export function calculatePersonalityProfile(movies) {
   return {
     sensationSeeking: avgArousal,
     spiceTolerance: avgArousal * 0.9, // Slightly lower than sensation
-    energyPreference: avgArousal,
     comfortSeeking: 100 - avgArousal
   };
 }

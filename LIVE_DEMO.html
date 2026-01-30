@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieMatch Food Pairing - Live Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+            color: #fff;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+            background: rgba(29, 185, 84, 0.1);
+            border-radius: 16px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #1DB954 0%, #1aa34a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: #999;
+            font-size: 1.1rem;
+        }
+
+        .demo-section {
+            background: #1a1a1a;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid #2a2a2a;
+        }
+
+        .movie-input {
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #1DB954;
+            font-weight: 600;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 12px;
+            background: #2a2a2a;
+            border: 1px solid #3a3a3a;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #1DB954;
+        }
+
+        .arousal-display {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .arousal-bar-container {
+            background: #2a2a2a;
+            height: 40px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .arousal-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #4a9d5f 0%, #1DB954 50%, #ff6b6b 100%);
+            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .spice-level {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #1DB954 0%, #1aa34a 100%);
+            color: #000;
+            border-radius: 24px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 20px 0;
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .food-card {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #3a3a3a;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .food-card:hover {
+            transform: translateY(-4px);
+            border-color: #1DB954;
+        }
+
+        .food-card h3 {
+            color: #1DB954;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .food-card ul {
+            list-style: none;
+        }
+
+        .food-card li {
+            padding: 8px 0;
+            border-bottom: 1px solid #3a3a3a;
+            color: #ddd;
+        }
+
+        .food-card li:last-child {
+            border-bottom: none;
+        }
+
+        .research-badge {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 30px;
+            text-align: center;
+            border-left: 4px solid #1DB954;
+        }
+
+        .research-badge p {
+            color: #aaa;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .research-badge a {
+            color: #1DB954;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .research-badge a:hover {
+            text-decoration: underline;
+        }
+
+        .example-movies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .example-movie {
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .example-movie:hover {
+            border-color: #1DB954;
+            transform: scale(1.05);
+        }
+
+        .example-movie .emoji {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .food-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬🍽️ MovieMatch Food Pairing</h1>
+            <p class="subtitle">Research-backed food recommendations for every movie</p>
+        </header>
+
+        <div class="demo-section">
+            <h2 style="margin-bottom: 20px;">Try It Out</h2>
+            
+            <div class="movie-input">
+                <label>Select a Movie Genre:</label>
+                <select id="genreSelect" onchange="updatePairing()">
+                    <option value="30">Action / Thriller</option>
+                    <option value="25">Adventure</option>
+                    <option value="20">Science Fiction</option>
+                    <option value="15">Comedy</option>
+                    <option value="10">Fantasy</option>
+                    <option value="5">Drama</option>
+                    <option value="0">Romance</option>
+                </select>
+            </div>
+
+            <p style="color: #999; margin-bottom: 20px;">Or try these popular movies:</p>
+            <div class="example-movies">
+                <div class="example-movie" onclick="setMovie('Mad Max: Fury Road', 92)">
+                    <span class="emoji">💥</span>
+                    <strong>Mad Max</strong>
+                </div>
+                <div class="example-movie" onclick="setMovie('John Wick', 82)">
+                    <span class="emoji">🔫</span>
+                    <strong>John Wick</strong>
+                </div>
+                <div class="example-movie" onclick="setMovie('The Notebook', 8)">
+                    <span class="emoji">💕</span>
+                    <strong>The Notebook</strong>
+                </div>
+                <div class="example-movie" onclick="setMovie('Inception', 65)">
+                    <span class="emoji">🌀</span>
+                    <strong>Inception</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2 style="margin-bottom: 20px;">Recommendation for: <span id="movieTitle">Action Movie</span></h2>
+            
+            <div class="arousal-display">
+                <div class="arousal-bar-container">
+                    <div class="arousal-bar" id="arousalBar">
+                        <span id="arousalText">30/100</span>
+                    </div>
+                </div>
+                <div class="spice-level" id="spiceLevel">🌶️ Mild</div>
+            </div>
+
+            <h3 style="margin: 30px 0 20px 0; color: #1DB954;">Recommended Foods:</h3>
+            <div class="food-grid" id="foodGrid">
+                <!-- Food recommendations will be inserted here -->
+            </div>
+
+            <div class="research-badge">
+                <p>
+                    📚 Based on <a href="https://pure.psu.edu/en/publications/personality-factors-predict-spicy-food-liking-and-intake" target="_blank">Penn State research</a> 
+                    showing sensation-seekers are ~6× more likely to enjoy spicy food
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const foodDatabase = {
+            0: {
+                name: "Comfort / No Spice",
+                emoji: "😌",
+                cuisines: {
+                    "American": ["Mac & cheese", "Grilled cheese sandwich", "Chicken pot pie"],
+                    "Italian": ["Pasta primavera", "Margherita pizza", "Risotto"],
+                    "Japanese": ["Sushi", "Teriyaki chicken", "Miso soup"]
+                }
+            },
+            1: {
+                name: "Mild",
+                emoji: "🌶️",
+                cuisines: {
+                    "Mexican": ["Soft tacos with salsa verde", "Quesadillas", "Bean and cheese burritos"],
+                    "Italian": ["Pasta arrabiata (mild)", "Pepperoni pizza"],
+                    "American": ["BBQ wings (mild)", "Cajun fries", "Spiced popcorn"]
+                }
+            },
+            2: {
+                name: "Medium",
+                emoji: "🌶️🌶️",
+                cuisines: {
+                    "Mexican": ["Tacos al pastor", "Loaded nachos", "Jalapeño poppers"],
+                    "American": ["Buffalo wings", "Jalapeño burger", "Spicy BBQ ribs"],
+                    "Asian": ["General Tso's chicken", "Sriracha shrimp", "Spicy ramen"]
+                }
+            },
+            3: {
+                name: "Hot",
+                emoji: "🌶️🌶️🌶️",
+                cuisines: {
+                    "Thai": ["Thai red curry", "Tom yum soup", "Pad krapow"],
+                    "Caribbean": ["Jerk chicken", "Peri-peri shrimp"],
+                    "Korean": ["Tteokbokki", "Gochugaru wings", "Kimchi jjigae"]
+                }
+            },
+            4: {
+                name: "Very Hot",
+                emoji: "🌶️🌶️🌶️🌶️",
+                cuisines: {
+                    "American": ["Nashville hot chicken", "Ghost pepper wings", "Carolina reaper burger"],
+                    "Korean": ["Buldak (fire chicken) noodles", "2x Spicy ramen"],
+                    "Chinese": ["Sichuan dry chili chicken", "Mapo tofu (extra spicy)"]
+                }
+            }
+        };
+
+        function getSpiceLevel(score) {
+            if (score >= 80) return 4;
+            if (score >= 60) return 3;
+            if (score >= 40) return 2;
+            if (score >= 20) return 1;
+            return 0;
+        }
+
+        function updatePairing() {
+            const genreScore = parseInt(document.getElementById('genreSelect').value);
+            const arousalScore = genreScore + Math.floor(Math.random() * 20) + 10; // Add some variation
+            displayPairing('Selected Movie', arousalScore);
+        }
+
+        function setMovie(title, score) {
+            displayPairing(title, score);
+        }
+
+        function displayPairing(title, arousalScore) {
+            // Clamp score
+            arousalScore = Math.max(0, Math.min(100, arousalScore));
+            
+            // Update title
+            document.getElementById('movieTitle').textContent = title;
+            
+            // Update arousal bar
+            const bar = document.getElementById('arousalBar');
+            const text = document.getElementById('arousalText');
+            bar.style.width = arousalScore + '%';
+            text.textContent = arousalScore + '/100';
+            
+            // Get spice level
+            const spiceLevel = getSpiceLevel(arousalScore);
+            const foodInfo = foodDatabase[spiceLevel];
+            
+            // Update spice badge
+            document.getElementById('spiceLevel').innerHTML = 
+                foodInfo.emoji + ' ' + foodInfo.name;
+            
+            // Update food grid
+            const foodGrid = document.getElementById('foodGrid');
+            foodGrid.innerHTML = '';
+            
+            for (const [cuisine, dishes] of Object.entries(foodInfo.cuisines)) {
+                const card = document.createElement('div');
+                card.className = 'food-card';
+                card.innerHTML = `
+                    <h3>${cuisine}</h3>
+                    <ul>
+                        ${dishes.map(dish => `<li>${dish}</li>`).join('')}
+                    </ul>
+                `;
+                foodGrid.appendChild(card);
+            }
+        }
+
+        // Initialize with a default movie
+        displayPairing('Action Movie', 30);
+    </script>
+</body>
+</html>

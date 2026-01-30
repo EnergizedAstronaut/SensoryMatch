@@ -5,39 +5,24 @@ import { calculatePersonalityProfile } from '../utils/sensory-pairing-engine';
 /**
  * PersonalityRadar Component
  * Visualizes user's personality profile based on movie preferences
- * Integrates with Visualisify for cross-platform insights
  * 
  * Props:
  * - movies: Array of user's watched/liked movies
- * - spotifyData: Optional Spotify listening data from Visualisify
  */
-export function PersonalityRadar({ movies = [], spotifyData = null }) {
+export function PersonalityRadar({ movies = [] }) {
   const profile = useMemo(() => {
     if (!movies || movies.length === 0) {
       return {
         sensationSeeking: 50,
         spiceTolerance: 50,
-        energyPreference: 50,
         comfortSeeking: 50
       };
     }
     return calculatePersonalityProfile(movies);
   }, [movies]);
   
-  // Combine with Spotify data if available
-  const combinedProfile = useMemo(() => {
-    if (!spotifyData) return profile;
-    
-    // Spotify data enrichment
-    const musicEnergy = spotifyData.avgEnergy * 100; // 0-1 scale to 0-100
-    
-    return {
-      sensationSeeking: (profile.sensationSeeking + musicEnergy) / 2,
-      spiceTolerance: profile.spiceTolerance,
-      energyPreference: (profile.energyPreference + musicEnergy) / 2,
-      comfortSeeking: profile.comfortSeeking
-    };
-  }, [profile, spotifyData]);
+  // Use movie profile directly
+  const combinedProfile = profile;
   
   // Format data for Recharts
   const radarData = [
@@ -52,11 +37,6 @@ export function PersonalityRadar({ movies = [], spotifyData = null }) {
       fullMark: 100
     },
     {
-      dimension: 'Energy\nPreference',
-      value: combinedProfile.energyPreference,
-      fullMark: 100
-    },
-    {
       dimension: 'Comfort\nSeeking',
       value: combinedProfile.comfortSeeking,
       fullMark: 100
@@ -67,7 +47,7 @@ export function PersonalityRadar({ movies = [], spotifyData = null }) {
     <div className="personality-radar-container">
       <h3>🧠 Your Sensory Profile</h3>
       <p className="profile-subtitle">
-        Based on {movies.length} movies {spotifyData ? '& your music taste' : ''}
+        Based on {movies.length} movies
       </p>
       
       <ResponsiveContainer width="100%" height={400}>
@@ -110,11 +90,6 @@ export function PersonalityRadar({ movies = [], spotifyData = null }) {
           label="Spice Tolerance"
           score={combinedProfile.spiceTolerance}
           description={getInsightText('spice', combinedProfile.spiceTolerance)}
-        />
-        <ProfileInsight
-          label="Energy Preference"
-          score={combinedProfile.energyPreference}
-          description={getInsightText('energy', combinedProfile.energyPreference)}
         />
       </div>
       
@@ -169,13 +144,6 @@ function getInsightText(dimension, score) {
       medium: 'You like noticeable spice without overwhelming heat. Jalapeños are your friend.',
       'low-medium': 'Gentle warmth suits you. Mild curry and light spices are ideal.',
       low: 'You prefer no heat. Rich, savory flavors without capsaicin burn.'
-    },
-    energy: {
-      high: 'High-energy music and intense movies fuel you. EDM and metal match your vibe.',
-      'medium-high': 'Upbeat, dynamic content energizes you. Rock and hip-hop fit well.',
-      medium: 'You enjoy balanced energy. Pop and indie match your mood.',
-      'low-medium': 'Mellow, smooth sounds suit you. Jazz and lo-fi are your go-to.',
-      low: 'Calm, ambient music resonates. Classical and acoustic feed your soul.'
     }
   };
   
@@ -214,9 +182,9 @@ export function ProfileBadge({ movies }) {
 
 /**
  * Export Profile Data
- * For sharing between MovieMatch and Visualisify
+ * For potential future integrations
  */
-export function exportProfileData(movies, spotifyData = null) {
+export function exportProfileData(movies) {
   const movieProfile = calculatePersonalityProfile(movies);
   
   return {
@@ -224,15 +192,7 @@ export function exportProfileData(movies, spotifyData = null) {
     timestamp: new Date().toISOString(),
     profile: movieProfile,
     metadata: {
-      movieCount: movies.length,
-      hasSpotifyData: !!spotifyData
-    },
-    // Format for Visualisify import
-    visualisifyFormat: {
-      sensationSeeking: movieProfile.sensationSeeking,
-      spiceTolerance: movieProfile.spiceTolerance,
-      energyPreference: movieProfile.energyPreference,
-      comfortSeeking: movieProfile.comfortSeeking
+      movieCount: movies.length
     }
   };
 }
