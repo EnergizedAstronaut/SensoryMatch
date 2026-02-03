@@ -1040,6 +1040,11 @@ export default function MovieMatch() {
   // your existing inline JS (or this can call functions from sensoryPairing.js)
 </script>
 </body>
+export function getSensoryPairing(arousalScore) {
+  // your pairing logic here
+  // return { name, emoji, cuisines }
+}
+
 
   );
 }
