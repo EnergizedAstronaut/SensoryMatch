@@ -225,7 +225,7 @@
             <h1>🎬🍽️ MovieMatch & SensoryMatch</h1>
             <p class="subtitle">Discover movies you'll both love and food you'll both enjoy. Research-backed food recommendations for every movie</p>
         </header>
-
+     
         <div class="demo-section">
             <h2 style="margin-bottom: 20px;">Try It Out</h2>
             
@@ -356,32 +356,46 @@
             displayPairing(title, score);
         }
 
+      <!-- Sensory logic FIRST -->
+    <script src="sensoryPairing.js"></script>
+
+    <!-- Main app logic -->
+    <script>
+        function updatePairing() {
+            const genreScore = parseInt(document.getElementById('genreSelect').value);
+            const arousalScore = genreScore + Math.floor(Math.random() * 20) + 10;
+            displayPairing('Selected Movie', arousalScore);
+        }
+
+        function setMovie(title, score) {
+            displayPairing(title, score);
+        }
+
         function displayPairing(title, arousalScore) {
             // Clamp score
             arousalScore = Math.max(0, Math.min(100, arousalScore));
-            
+
+            // ✅ NOW THIS EXISTS
+            const pairing = getSensoryPairing(arousalScore);
+
             // Update title
             document.getElementById('movieTitle').textContent = title;
-            
+
             // Update arousal bar
             const bar = document.getElementById('arousalBar');
             const text = document.getElementById('arousalText');
             bar.style.width = arousalScore + '%';
             text.textContent = arousalScore + '/100';
-            
-            // Get spice level
-            const spiceLevel = getSpiceLevel(arousalScore);
-            const foodInfo = foodDatabase[spiceLevel];
-            
+
             // Update spice badge
-            document.getElementById('spiceLevel').innerHTML = 
-                foodInfo.emoji + ' ' + foodInfo.name;
-            
+            document.getElementById('spiceLevel').innerHTML =
+                pairing.emoji + ' ' + pairing.name;
+
             // Update food grid
             const foodGrid = document.getElementById('foodGrid');
             foodGrid.innerHTML = '';
-            
-            for (const [cuisine, dishes] of Object.entries(foodInfo.cuisines)) {
+
+            for (const [cuisine, dishes] of Object.entries(pairing.cuisines)) {
                 const card = document.createElement('div');
                 card.className = 'food-card';
                 card.innerHTML = `
@@ -394,8 +408,12 @@
             }
         }
 
-        // Initialize with a default movie
+        // Initialize
         displayPairing('Action Movie', 30);
     </script>
+</body>
+</html>
+
+
 </body>
 </html>
