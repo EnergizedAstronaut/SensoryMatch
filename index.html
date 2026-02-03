@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MovieMatch Food Pairing - Live Demo</title>
- <link rel="stylesheet" href="sensory-pairing.css" />
+<link rel="stylesheet" href="sensory-pairing.css" />
 </head>
 <body>
 <div class="container">
@@ -16,7 +16,6 @@
   <div class="demo-section">
     <h2>Try It Out</h2>
 
-    <!-- MOVIE SEARCH -->
     <div class="movie-input">
       <label>Search for a Movie:</label>
       <input type="text" id="movieSearch"
@@ -67,13 +66,13 @@
       <div class="spice-level" id="spiceLevel">🌶️ Mild</div>
     </div>
 
-  <h3 style="color:#ff1de0;">Recommended Foods:</h3>
+    <h3 style="color:#1DB954;">Recommended Foods:</h3>
     <div class="food-grid" id="foodGrid"></div>
   </div>
 </div>
 
 <!-- Sensory Logic -->
-<script src="sensoryPairing.js"></script>
+<script type="module" src="sensoryPairing.js"></script>
 
 <script>
 const API_KEY = "598543d";
@@ -82,7 +81,11 @@ async function searchMovie() {
   const query = document.getElementById("movieSearch").value.trim();
   if (!query) return;
 
-  const url = `https://corsproxy.io/?https://www.omdbapi.com/?t=${encodeURIComponent(query)}&apikey=${API_KEY}`;
+  const url =
+    "https://api.allorigins.win/raw?url=" +
+    encodeURIComponent(
+      `https://www.omdbapi.com/?t=${encodeURIComponent(query)}&apikey=${API_KEY}`
+    );
 
   try {
     const res = await fetch(url);
@@ -100,6 +103,7 @@ async function searchMovie() {
     alert("Error fetching movie data");
   }
 }
+
 
 function inferArousalFromOMDb(movie) {
   let score = 20;
