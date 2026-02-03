@@ -72,70 +72,94 @@
 </div>
 
 <!-- Sensory Logic -->
-<script type="module" src="sensoryPairing.js"></script>
+<script type="module">
+  import { getSensoryPairing } from "./sensoryPairing.js";
 
-<script>
-const API_KEY = "598543d";
+  const API_KEY = "598543d";
 
-async function searchMovie() {
-  const query = document.getElementById("movieSearch").value.trim();
-  if (!query) return;
+  async function searchMovie() {
+    const query = document.getElementById("movieSearch").value.trim();
+    if (!query) return;
 
-  const url =
-    "https://api.allorigins.win/raw?url=" +
-    encodeURIComponent(
-      `https://www.omdbapi.com/?t=${encodeURIComponent(query)}&apikey=${API_KEY}`
-    );
+    const url =
+      "https://api.allorigins.win/raw?url=" +
+      encodeURIComponent(
+        `https://www.omdbapi.com/?t=${encodeURIComponent(query)}&apikey=${API_KEY}`
+      );
 
-  try {
-    const res = await fetch(url);
-    const data = await res.json();
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
 
-    if (data.Response === "False") {
-      alert("Movie not found");
-      return;
+      if (data.Response === "False") {
+        alert("Movie not found");
+        return;
+      }
+
+      const arousalScore = inferArousalFromOMDb(data);
+      displayPairing(data.Title, arousalScore);
+    } catch (err) {
+      console.error(err);
+      alert("Error fetching movie data");
     }
-
-    const arousalScore = inferArousalFromOMDb(data);
-    displayPairing(data.Title, arousalScore);
-  } catch (err) {
-    console.error(err);
-    alert("Error fetching movie data");
   }
-}
 
+  function inferArousalFromOMDb(movie) {
+    let score = 20;
+    const genres = (movie.Genre || "").split(", ");
 
-function inferArousalFromOMDb(movie) {
-  let score = 20;
-  const genres = (movie.Genre || "").split(", ");
+    if (genres.includes("Action")) score += 30;
+    if (genres.includes("Thriller")) score += 25;
+    if (genres.includes("Horror")) score += 35;
+    if (genres.includes("Sci-Fi")) score += 20;
+    if (genres.includes("Comedy")) score += 10;
+    if (genres.includes("Romance")) score -= 10;
+    if (genres.includes("Drama")) score -= 5;
 
-  if (genres.includes("Action")) score += 30;
-  if (genres.includes("Thriller")) score += 25;
-  if (genres.includes("Horror")) score += 35;
-  if (genres.includes("Sci-Fi")) score += 20;
-  if (genres.includes("Comedy")) score += 10;
-  if (genres.includes("Romance")) score -= 10;
-  if (genres.includes("Drama")) score -= 5;
+    const rating = parseFloat(movie.imdbRating);
+    if (!isNaN(rating)) score += rating * 2;
 
-  const rating = parseFloat(movie.imdbRating);
-  if (!isNaN(rating)) score += rating * 2;
+    return Math.max(0, Math.min(100, Math.round(score)));
+  }
 
-  return Math.max(0, Math.min(100, Math.round(score)));
-}
+  function updatePairing() {
+    const genreScore = parseInt(document.getElementById("genreSelect").value);
+    const arousalScore = genreScore + Math.floor(Math.random() * 20) + 10;
+    displayPairing("Selected Movie", arousalScore);
+  }
 
-// Genre picker
-function updatePairing() {
-  const genreScore = parseInt(document.getElementById('genreSelect').value);
-  const arousalScore = genreScore + Math.floor(Math.random() * 20) + 10;
-  displayPairing('Selected Movie', arousalScore);
-}
+  function setMovie(title, score) {
+    displayPairing(title, score);
+  }
 
-function setMovie(title, score) {
-  displayPairing(title, score);
-}
+  function displayPairing(title, arousalScore) {
+    arousalScore = Math.max(0, Math.min(100, arousalScore));
+    const pairing = getSensoryPairing(arousalScore);
 
-// Default
-displayPairing('Action Movie', 30);
+    document.getElementById("movieTitle").textContent = title;
+    document.getElementById("arousalBar").style.width = arousalScore + "%";
+    document.getElementById("arousalText").textContent = arousalScore + "/100";
+
+    document.getElementById("spiceLevel").innerHTML =
+      pairing.emoji + " " + pairing.name;
+
+    const foodGrid = document.getElementById("foodGrid");
+    foodGrid.innerHTML = "";
+
+    for (const [cuisine, dishes] of Object.entries(pairing.cuisines)) {
+      const card = document.createElement("div");
+      card.className = "food-card";
+      card.innerHTML = `
+        <h3>${cuisine}</h3>
+        <ul>${dishes.map(d => `<li>${d}</li>`).join("")}</ul>
+      `;
+      foodGrid.appendChild(card);
+    }
+  }
+
+  displayPairing("Action Movie", 30);
 </script>
+
+
 </body>
 </html>
