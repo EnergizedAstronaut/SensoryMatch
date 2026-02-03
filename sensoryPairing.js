@@ -139,6 +139,14 @@ function getDrinksForLevel(spiceLevel) {
   const key = spiceLevel >= 3 ? "inferno" : spiceLevel === 2 ? "spicy" : spiceLevel === 1 ? "mild" : "comfort";
   return FOOD_DATA.drinkPairings[key];
 }
+function getSensoryPairing(arousalScore) {
+  if (arousalScore > 70) return "🔥 Very Spicy";
+  if (arousalScore > 40) return "🌶️ Medium";
+  return "😌 Mild";
+}
+
+// expose globally
+window.getSensoryPairing = getSensoryPairing;
 
 // ===========================================================================
 // CONSTANTS
@@ -1027,6 +1035,11 @@ export default function MovieMatch() {
         {showCompatibilityModal && <CompatibilityModal />}
         {showExportModal && <ExportModal />}
       </div>
-    </div>
+    </div><script src="sensoryPairing.js"></script>
+<script>
+  // your existing inline JS (or this can call functions from sensoryPairing.js)
+</script>
+</body>
+
   );
 }
