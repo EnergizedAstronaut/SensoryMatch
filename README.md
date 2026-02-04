@@ -23,6 +23,12 @@ This project builds on peer-reviewed findings from Penn State University linking
 
 > *“Individuals with high sensation-seeking personalities (who prefer action movies, adventure, and intense experiences) are more likely to enjoy bold, spicy foods.”* :contentReference[oaicite:3]{index=3}
 
+Byrnes, N. K., & Hayes, J. E. (2015). Personality factors predict spicy food liking and intake. Food Quality and Preference, 28(1), 213-221.
+
+Key Finding: High sensation-seekers (who love action movies) are ~6× more likely to enjoy spicy food.
+
+📖 Read the study
+
 ---
 
 ## 🚀 Features
