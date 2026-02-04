@@ -1,7 +1,7 @@
 # 🎬 SensoryMatch™
 
 **Research-backed food & music pairings for every movie**  
-A fun, interactive system that pairs movies with optimal food and music choices based on psychological research in sensation-seeking and arousal theory. :contentReference[oaicite:0]{index=0}
+A fun, interactive system that pairs movies with optimal food and music choices based on psychological research in sensation-seeking and arousal theory. 
 
 ---
 
@@ -13,21 +13,21 @@ SensoryMatch transforms movie recommendations into **complete sensory experience
 - 🎶 **Music pairings**  
 - 📊 **Personality insights**
 
-All based on established research linking personality traits to sensory preferences. :contentReference[oaicite:1]{index=1}
+All based on established research linking personality traits to sensory preferences. 
 
 ---
 
 ## 🧠 Scientific Foundation
 
-This project builds on peer-reviewed findings from Penn State University linking personality factors (like sensation-seeking) with food preferences and arousal responses. :contentReference[oaicite:2]{index=2}
+This project builds on peer-reviewed findings from Penn State University linking personality factors (like sensation-seeking) with food preferences and arousal responses. 
 
-> *“Individuals with high sensation-seeking personalities (who prefer action movies, adventure, and intense experiences) are more likely to enjoy bold, spicy foods.”* :contentReference[oaicite:3]{index=3}
+> *“Individuals with high sensation-seeking personalities (who prefer action movies, adventure, and intense experiences) are more likely to enjoy bold, spicy foods.”* 
 
 Byrnes, N. K., & Hayes, J. E. (2015). Personality factors predict spicy food liking and intake. Food Quality and Preference, 28(1), 213-221.
 
 Key Finding: High sensation-seekers (who love action movies) are ~6× more likely to enjoy spicy food.
 
-📖 Read the study
+📖 Read the study https://pmc.ncbi.nlm.nih.gov/articles/PMC3607321/
 
 ---
 
