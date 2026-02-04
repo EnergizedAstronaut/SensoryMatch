@@ -10,7 +10,7 @@ A fun, interactive system that pairs movies with optimal food and music choices 
 SensoryMatch transforms movie recommendations into **complete sensory experiences** by suggesting:
 
 - 🥘 **Food pairings**  
-- 🎶 **Music pairings**  
+  
 - 📊 **Personality insights**
 
 All based on established research linking personality traits to sensory preferences. 
