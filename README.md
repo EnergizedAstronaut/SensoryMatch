@@ -36,15 +36,6 @@ Key Finding: High sensation-seekers (who love action movies) are ~6× more likel
 ✨ **Food Recommendations**  
 Based on movie intensity and group profiles.
 
-🎵 **Music Pairings**  
-Soundtracks tailored to match the mood of your selected film.
-
-📈 **Personality Radar Charts**  
-Visualize taste profiles and group dynamics.
-
-📦 **Modular Codebase**  
-React components + core engine work independently or in integration.
-
 ---
 
 ## 📦 Quick Start
