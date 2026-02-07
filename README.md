@@ -37,6 +37,8 @@ Key Finding: High sensation-seekers (who love action movies) are ~6× more likel
 Based on movie intensity and group profiles.
 
 ---
+Live demo:
+https://energizedastronaut.github.io/SensoryMatch/
 
 ## 📦 Quick Start
 
